@@ -1,0 +1,70 @@
+import csv
+def write_into_csv(students_list):
+    with open('students_list.csv','a',newline='')as csv_file:
+        writer=csv.writer(csv_file)
+        if csv_file.tell()==0:
+            writer.writerow(["Name","age"])
+        writer.writerow(students_list)
+
+if __name__ == "__main__":
+    condition=True
+    student_num=1
+    
+    
+   
+    while(condition):
+        student_info=input("enter the student name and age:".format(student_num))
+        
+
+        students_age_list=student_info.split(" ")
+        print(students_age_list)
+       
+                       
+        del_inf =input("if want to delete previous then type 'delete':")
+        if del_inf =="delete":
+            f=open("students_list.csv",'w')
+            print(f.write("deleted\n"))
+        write_into_csv(student_info.split())
+                
+
+            
+      
+        
+        condition_check=input("enter (yes/no) for another student:")
+        if condition_check=="yes":
+            condition=True 
+        elif condition_check=="no":
+            condition=False
+       
+                  
+print("\n")
+f=open('students_list.csv','r')
+for x in f:
+    print(x)
+    
+    
+ OUTPUT:
+ enter the student name and age:sathvik 15
+['sathvik', '15']
+if want to delete previous then type 'delete':
+enter (yes/no) for another student:yes
+enter the student name and age:ramu 10
+['ramu', '10']
+if want to delete previous then type 'delete':
+enter (yes/no) for another student:no
+
+sathvik,15
+ramu,10
+
+
+
+
+
+
+
+
+
+
+
+
+
